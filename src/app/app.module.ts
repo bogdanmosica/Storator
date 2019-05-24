@@ -1,21 +1,37 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { environment } from '../environments/environment';
+
+// not used in production
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { storeFreeze } from 'ngrx-store-freeze';
+
+// modules
+import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+
+// page components
+import { AppComponent } from './app.component';
+
+export const metaReducers: any[] = !environment.production ? [storeFreeze] : [];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
+    CoreModule,
+    SharedModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers, { metaReducers })
+    StoreModule.forRoot([], { metaReducers }),
+    EffectsModule.forRoot([]),
+    environment.production ? [] : StoreDevtoolsModule.instrument(),
   ],
+  declarations: [
+    AppComponent,
+  ],
+  bootstrap: [AppComponent],
   providers: [],
-  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
