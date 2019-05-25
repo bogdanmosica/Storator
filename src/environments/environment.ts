@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api_headers: {
+    "content-type": "application/json",
+    "x-apikey": "5c30692266292476821c9d02",
+    "cache-control": "no-cache"
+  },
+  api_url: "https://moneytracker-5a2f.restdb.io/rest/expenselist",
 };
 
 /*
