@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { throwError as observableThrowError,  Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { map } from "rxjs/operators";
 
 import {
@@ -25,10 +26,10 @@ export class ExpenseApiService {
   constructor(private http: HttpClient) {}
 
   list(): Observable<ExpenseResponse[]> {
-    var response = map((response: ExpenseResponse[]) => {
-      return response;
-    });
-    return response(this.http.get(this.url, { headers: this.headers }))
+    return this.http.get<ExpenseResponse[]>(this.url, { headers: this.headers })
+      .pipe(
+        catchError(aError => observableThrowError(aError))
+      );
   }
 
   save(expense: Expense): Observable<ExpenseRequest> {

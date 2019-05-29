@@ -1,1 +1,2 @@
-export const actions: any[] = [];
+export * from './income.action';
+export * from './expense.action';
