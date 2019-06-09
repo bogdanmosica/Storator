@@ -1,5 +1,5 @@
-import { ExpenseCategoryResponse } from "expense-category-response.interface";
-import { ExpenseCategoryRequest } from "expense-category-request.interface";
+import { ExpenseCategoryResponse } from "../expense-properties/expense-category-response.interface";
+import { ExpenseCategoryRequest } from "../expense-properties/expense-category-request.interface";
 
 export interface IExpenseCategory {
   name: string;

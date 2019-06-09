@@ -1,4 +1,4 @@
-import { ExpenseCategory, ExpenseCategory } from "./expense-properties";
+import { ExpenseCategory } from "./expense-properties";
 import { ExpenseResponse,  } from "./expense-response.interface";
 import { ExpenseRequest,  } from "./expense-request.interface";
 

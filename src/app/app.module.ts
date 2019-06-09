@@ -13,6 +13,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
+// guards
+import * as fromGuards from './guards';
+
 // page components
 import { AppComponent } from './app.component';
 
@@ -32,6 +35,8 @@ export const metaReducers: any[] = !environment.production ? [storeFreeze] : [];
     AppComponent,
   ],
   bootstrap: [AppComponent],
-  providers: [],
+  providers: [
+    ...fromGuards.guards,
+  ],
 })
 export class AppModule {}

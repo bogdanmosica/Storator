@@ -9,17 +9,17 @@ export enum IncomeCategoryActionTypes {
 
 // load IncomeCategories
 export class LoadIncomeCategories implements Action {
-  readonly type: string = IncomeCategoryActionTypes.LoadIncomeCategories.toString();
+  readonly type: string = IncomeCategoryActionTypes.LoadIncomeCategories;
   constructor(public payload?: any) {}
 }
 
 export class LoadIncomeCategoriesFail implements Action {
-  readonly type: string = IncomeCategoryActionTypes.LoadIncomeCategoriesFail.toString();
+  readonly type: string = IncomeCategoryActionTypes.LoadIncomeCategoriesFail;
   constructor(public payload: any) {}
 }
 
 export class LoadIncomeCategoriesSuccess implements Action {
-  readonly type: string = IncomeCategoryActionTypes.LoadIncomeCategoriesSuccess.toString();
+  readonly type: string = IncomeCategoryActionTypes.LoadIncomeCategoriesSuccess;
   constructor(public payload: IncomeCategory[]) {}
 }
 

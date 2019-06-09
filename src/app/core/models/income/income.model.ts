@@ -1,4 +1,4 @@
-import { IncomeCategory, IncomeCategory } from "./income-properties";
+import { IncomeCategory } from "./income-properties";
 import { IncomeResponse,  } from "./income-response.interface";
 import { IncomeRequest,  } from "./income-request.interface";
 

@@ -1,5 +1,5 @@
-import { IncomeCategoryResponse } from "income-category-response.interface";
-import { IncomeCategoryRequest } from "income-category-request.interface";
+import { IncomeCategoryResponse } from "../income-properties/income-category-response.interface";
+import { IncomeCategoryRequest } from "../income-properties/income-category-request.interface";
 
 export interface IIncomeCategory {
   name: string;

@@ -9,17 +9,17 @@ export enum ExpenseCategoryActionTypes {
 
 // load ExpenseCategories
 export class LoadExpenseCategories implements Action {
-  readonly type: string = ExpenseCategoryActionTypes.LoadExpenseCategories.toString();
+  readonly type: string = ExpenseCategoryActionTypes.LoadExpenseCategories;
   constructor(public payload?: any) {}
 }
 
 export class LoadExpenseCategoriesFail implements Action {
-  readonly type: string = ExpenseCategoryActionTypes.LoadExpenseCategoriesFail.toString();
+  readonly type: string = ExpenseCategoryActionTypes.LoadExpenseCategoriesFail;
   constructor(public payload: any) {}
 }
 
 export class LoadExpenseCategoriesSuccess implements Action {
-  readonly type: string = ExpenseCategoryActionTypes.LoadExpenseCategoriesSuccess.toString();
+  readonly type: string = ExpenseCategoryActionTypes.LoadExpenseCategoriesSuccess;
   constructor(public payload: ExpenseCategory[]) {}
 }
 

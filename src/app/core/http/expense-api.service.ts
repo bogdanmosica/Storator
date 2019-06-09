@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { throwError as observableThrowError,  Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { map } from "rxjs/operators";
+import { catchError, map } from 'rxjs/operators';
 
 import {
   Expense,
@@ -33,11 +32,11 @@ export class ExpenseApiService {
   }
 
   save(expense: Expense): Observable<ExpenseRequest> {
-    return this.http.post(this.url, expense, { headers: this.headers });
+    return this.http.post<Expense>(this.url, expense, { headers: this.headers });
   }
 
   delete(id: string): Observable<ExpenseRequest> {
-    return this.http.delete(this.url + '/' + id, { headers: this.headers });
+    return this.http.delete<ExpenseRequest>(this.url + '/' + id, { headers: this.headers });
   }
 
   update(id: string, expense: ExpenseRequest) {
@@ -48,7 +47,7 @@ export class ExpenseApiService {
     var responseObservable = map((response: ExpenseResponse) => {
       return response;
     });
-    return responseObservable(this.http.get(this.url + '/' + id, { headers: this.headers }))
+    return responseObservable(this.http.get<ExpenseResponse>(this.url + '/' + id, { headers: this.headers }))
   }
 
   listByDate(startDate: Date, endDate: Date) {
@@ -56,6 +55,6 @@ export class ExpenseApiService {
     var response = map((response: ExpenseResponse) => {
       return response;
     });
-    return response(this.http.get(queryUrl, { headers: this.headers }))
+    return response(this.http.get<ExpenseResponse>(queryUrl, { headers: this.headers }))
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { throwError as observableThrowError,  Observable } from 'rxjs';
-import { map } from "rxjs/operators";
+import { catchError, map } from 'rxjs/operators';
 
 import {
   Income,
@@ -26,29 +26,29 @@ export class IncomeApiService {
   constructor(private http: HttpClient) {}
 
   list(): Observable<IncomeResponse[]> {
-    var response = map((response: IncomeResponse[]) => {
-      return response;
-    });
-    return response(this.http.get(this.url, { headers: this.headers }))
+    return this.http.get<IncomeResponse[]>(this.url, { headers: this.headers })
+      .pipe(
+        catchError(aError => observableThrowError(aError))
+      );
   }
 
   delete(id: string): Observable<Response> {
-    return this.http.delete(this.url + '/' + id, { headers: this.headers });
+    return this.http.delete<Response>(this.url + '/' + id, { headers: this.headers });
   }
 
   save(income: IncomeRequest): Observable<IncomeRequest> {
-    return this.http.post(this.url, income, { headers: this.headers });
+    return this.http.post<IncomeRequest>(this.url, income, { headers: this.headers });
   }
 
   update(income: IncomeRequest): Observable<IncomeRequest> {
-    return this.http.put(this.url + '/' + income._id, income, { headers: this.headers });
+    return this.http.put<IncomeRequest>(this.url + '/' + income._id, income, { headers: this.headers });
   }
 
   getIncome(id: string): Observable<IncomeResponse> {
     var response = map((response: IncomeResponse) => {
       return response;
     });
-    return response(this.http.get(this.url + '/' + id, { headers: this.headers }))
+    return response(this.http.get<IncomeResponse>(this.url + '/' + id, { headers: this.headers }))
   }
 
   listByDate(startDate: Date, endDate: Date) {
@@ -56,7 +56,7 @@ export class IncomeApiService {
     var responseObservable = map((response: Response) => {
       return response.json();
     });
-    return responseObservable(this.http.get(queryUrl, { headers: this.headers }))
+    return responseObservable(this.http.get<Response>(queryUrl, { headers: this.headers }))
   }
 
 }

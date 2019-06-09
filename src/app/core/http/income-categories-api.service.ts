@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { throwError as observableThrowError,  Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 import {
   IncomeCategory,
@@ -26,10 +26,10 @@ export class IncomeCategoryApiService {
   constructor(private http: HttpClient) {}
 
   listCategory(): Observable<IncomeCategoryResponse[]> {
-    var response = map((response: IncomeCategoryResponse[]) => {
-      return response;
-    });
-    return response(this.http.get(this.url, {headers: this.headers}))
+    return this.http.get<IncomeCategoryResponse[]>(this.url, { headers: this.headers })
+      .pipe(
+        catchError(aError => observableThrowError(aError))
+      );
   }
 
 }
