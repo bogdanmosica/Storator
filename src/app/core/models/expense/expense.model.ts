@@ -8,6 +8,7 @@ export interface IExpense {
   ammount: number;
   date: Date;
   category: ExpenseCategory;
+  hasDetails: boolean;
 }
 
 export class Expense {
@@ -17,6 +18,7 @@ export class Expense {
   date: Date;
   category: ExpenseCategory;
 
+  private hasDetails = false;
 
   constructor(aData?: any) {
     if (aData) {
@@ -26,6 +28,10 @@ export class Expense {
 
   get categoryName(): string {
     return this.category.name || undefined;
+  }
+
+  isDetailed() {
+    return this.hasDetails;
   }
 
   fromExpenseResponseJson(aJson: ExpenseResponse) {

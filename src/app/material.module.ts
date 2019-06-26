@@ -17,8 +17,10 @@ import {
   MatSlideToggleModule,
   MatSnackBarModule,
   MatSortModule,
+  MatSidenavModule,
   MatTableModule,
   MatTabsModule,
+  MatCardModule,
   MatToolbarModule,
   MAT_DATE_FORMATS,
   MAT_DATE_LOCALE
@@ -42,7 +44,9 @@ const modules = [
   MatSlideToggleModule,
   MatSnackBarModule,
   MatSortModule,
+  MatSidenavModule,
   MatTableModule,
+  MatCardModule,
   MatTabsModule,
   MatToolbarModule,
 ];

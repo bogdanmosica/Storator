@@ -33,3 +33,7 @@ export const getIncomeById = (aIncomeId: number) => createSelector(
   getIncomesEntities,
   (entities) => entities[aIncomeId] || undefined
 );
+export const hasDetailByIncomeId = (aIncomeId: number) => createSelector(
+  getIncomeById(aIncomeId),
+  (aIncome) => aIncome ? aIncome.isDetailed() : false
+);

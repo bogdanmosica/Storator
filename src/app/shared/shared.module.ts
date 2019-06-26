@@ -30,7 +30,6 @@ const modules = [
   ],
   exports: [
     ...fromComponents.components,
-    // modules
     modules,
   ],
 })

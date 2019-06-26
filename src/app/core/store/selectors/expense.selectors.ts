@@ -33,3 +33,7 @@ export const getExpenseById = (aExpenseId: number) => createSelector(
   getExpensesEntities,
   (entities) => entities[aExpenseId] || undefined
 );
+export const hasDetailByExpenseId = (aExpenseId: number) => createSelector(
+  getExpenseById(aExpenseId),
+  (aExpense) => aExpense ? aExpense.isDetailed() : false
+);

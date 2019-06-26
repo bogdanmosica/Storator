@@ -8,6 +8,7 @@ export interface IIncome {
   ammount: number;
   date: Date;
   category: IncomeCategory;
+  hasDetails: boolean;
 }
 
 export class Income {
@@ -17,6 +18,7 @@ export class Income {
   date: Date;
   category: IncomeCategory;
 
+  private hasDetails = false;
 
   constructor(aData?: any) {
     if (aData) {
@@ -26,6 +28,11 @@ export class Income {
 
   get categoryName(): string {
     return this.category.name || undefined;
+  }
+
+
+  isDetailed(): boolean {
+    return this.hasDetails;
   }
 
   fromIncomeResponseJson(aJson: IncomeResponse) {
