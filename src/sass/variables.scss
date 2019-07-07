@@ -1,8 +1,8 @@
-@import '~@angular/material/theming';
+@import '../../node_modules/@angular/material/_theming';
 
 $mat-concrete : #F2F2F2;
 
-$mat-congress-blue : (
+$mat-congress-blue: (
   50 : #E0E9F2,
   100 : #B3C8DE,
   200 : #80A4C8,
@@ -15,6 +15,7 @@ $mat-congress-blue : (
   900 : #002161,
   A100 : #91ACFF,
   A200 : #5E86FF,
+  A300 : #4285f4,
   A400 : #2B60FF,
   A700 : #124CFF,
   contrast: (
@@ -92,6 +93,8 @@ $storator-margin-xl : map-get($spaces, 'xl');
 $storator-header-height : 160px;
 $storator-header-logo-size : 96px;
 $storator-header-user-icon-size : 56px;
+
+$storator-sidenav-width: 80px;
 
 $storator-table-margin : $storator-margin-lg;
 $storator-table-padding : $storator-padding-md;

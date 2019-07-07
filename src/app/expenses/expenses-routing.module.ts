@@ -10,14 +10,14 @@ import * as fromContainers from './containers';
 const routes: Routes = [
   {
     path: '',
-    canActivate: [fromGuards.ExpensesGuard],
+    // canActivate: [fromGuards.ExpensesGuard],
     component: fromContainers.ExpensesComponent,
   },
   {
     path: 'detail/:expenseId',
-    canActivate: [
-      fromGuards.ExpensesGuard,
-    ],
+    // canActivate: [
+    //   fromGuards.ExpensesGuard,
+    // ],
     component: fromContainers.ExpenseDetailComponent,
   },
 ];

@@ -6,7 +6,7 @@ import { environment } from '../environments/environment';
 
 // not used in production
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { storeFreeze } from 'ngrx-store-freeze';
+
 
 // modules
 import { AppRoutingModule } from './app-routing.module';
@@ -19,7 +19,7 @@ import * as fromGuards from './guards';
 // page components
 import { AppComponent } from './app.component';
 
-export const metaReducers: any[] = !environment.production ? [storeFreeze] : [];
+export const metaReducers: any[] = !environment.production ? [] : [];
 
 @NgModule({
   imports: [
@@ -27,7 +27,7 @@ export const metaReducers: any[] = !environment.production ? [storeFreeze] : [];
     CoreModule,
     SharedModule,
     AppRoutingModule,
-    StoreModule.forRoot([], { metaReducers }),
+    StoreModule.forRoot([], { metaReducers, runtimeChecks: { strictStateImmutability: true, strictActionImmutability: true } }),
     EffectsModule.forRoot([]),
     environment.production ? [] : StoreDevtoolsModule.instrument(),
   ],

@@ -1,14 +1,32 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
+// modules
 import { SharedModule } from '../shared/shared.module';
 import { IncomesRoutingModule } from './incomes-routing.module';
 
+// guards
+import * as fromGuards from './guards';
+
+// components
+import * as fromComponents from './components';
+
+// containers
+import * as fromContainers from './containers';
+
 @NgModule({
-  declarations: [],
   imports: [
-    CommonModule,
     SharedModule,
-    IncomesRoutingModule
-  ]
+    IncomesRoutingModule,
+  ],
+  declarations: [
+    ...fromContainers.components,
+    ...fromComponents.components,
+  ],
+  entryComponents: [
+    ...fromContainers.entryComponents,
+  ],
+  providers: [
+    ...fromGuards.guards,
+  ],
 })
 export class IncomesModule { }

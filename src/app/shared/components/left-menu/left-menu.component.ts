@@ -22,7 +22,7 @@ export class LeftMenuComponent implements OnInit {
   }
 
   graphics() {
-    this.router.navigate(['/graphics']);
+    this.router.navigate(['/home']);
   }
 
 }

@@ -21,7 +21,7 @@ const routes: Routes = [{
       loadChildren: './expenses/expenses.module#ExpensesModule',
     },
     {
-      path: 'income',
+      path: 'incomes',
       loadChildren: './incomes/incomes.module#IncomesModule',
     },
     {

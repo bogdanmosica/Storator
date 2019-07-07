@@ -1,5 +1,13 @@
-<mat-list role="list">
-  <mat-list-item role="listitem"><button mat-button (click)="incomesList()">Incomes</button></mat-list-item>
-  <mat-list-item role="listitem"><button mat-button (click)="expensesList()">Expenses</button></mat-list-item>
-  <mat-list-item role="listitem"><button mat-button (click)="graphics()">Graphics</button></mat-list-item>
-</mat-list>
+<div id="left-menu">
+  <div class="left-menu-column" fxLayout="column" fxLayoutAlign="center center">
+    <button (click)="graphics()" mat-button>
+      <mat-icon>home</mat-icon>
+    </button>
+    <button (click)="incomesList()" mat-button>
+      <mat-icon>sort_by_alpha</mat-icon>
+    </button>
+    <button (click)="expensesList()" mat-button>
+      <mat-icon>settings</mat-icon>
+    </button>
+  </div>
+</div>

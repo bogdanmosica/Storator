@@ -1,0 +1,26 @@
+@import '~@angular/material/theming';
+@import 'variables.scss';
+
+div#left-menu {
+  width: $storator-sidenav-width;
+  height: 100%;
+  background-color : map-get($mat-congress-blue, A300);
+
+  .left-menu-column {
+    height: 100%;
+
+    button {
+      width: 100%;
+      padding-top: $storator-padding-md;
+      padding-bottom: $storator-padding-md;
+      border-bottom: thin solid map-get($mat-congress-blue, 50);
+      border-radius: 0;
+      mat-icon {
+        color: map-get($mat-congress-blue, 50);
+      }
+    }
+    button:first-child {
+      border-top: thin solid map-get($mat-congress-blue, 50);
+    }
+  }
+}

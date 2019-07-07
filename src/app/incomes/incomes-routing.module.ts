@@ -10,8 +10,15 @@ import * as fromContainers from './containers';
 const routes: Routes = [
   {
     path: '',
-    canActivate: [fromGuards.IncomeGuard],
+    //canActivate: [fromGuards.IncomeGuard],
     component: fromContainers.IncomesComponent,
+  },
+  {
+    path: 'detail/:incomeId',
+    // canActivate: [
+    //   fromGuards.ExpensesGuard,
+    // ],
+    component: fromContainers.IncomeDetailComponent,
   },
 ];
 
