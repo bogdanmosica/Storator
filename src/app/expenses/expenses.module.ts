@@ -12,11 +12,6 @@ import * as fromComponents from './components';
 
 // containers
 import * as fromContainers from './containers';
-import { ExpensesComponent } from './containers/expenses/expenses.component';
-import { ExpenseDetailComponent } from './containers/expense-detail/expense-detail.component';
-import { AddExpenseComponent } from './containers/add-expense/add-expense.component';
-import { EditExpenseComponent } from './components/edit-expense/edit-expense.component';
-import { ExpenseCardComponent } from './components/expense-card/expense-card.component';
 
 @NgModule({
   imports: [

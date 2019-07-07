@@ -6,10 +6,6 @@ import * as fromGuards from './guards';
 
 const routes: Routes = [{
   path: '',
-  canActivate: [
-    fromGuards.LoadExpenseCategoriesGuard,
-    fromGuards.LoadIncomeCategoriesGuard
-  ],
   children: [
     {
       path: '',

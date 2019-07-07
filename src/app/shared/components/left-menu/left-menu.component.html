@@ -1,5 +1,5 @@
 <mat-list role="list">
-  <mat-list-item role="listitem"><button mat-button routerLink="/incomes" routerLinkActive="active">Incomes</button></mat-list-item>
-  <mat-list-item role="listitem"><button mat-button routerLink="/expenses" routerLinkActive="active">Expenses</button></mat-list-item>
-  <mat-list-item role="listitem"><button mat-button routerLink="/graphics" routerLinkActive="active">Graphics</button></mat-list-item>
+  <mat-list-item role="listitem"><button mat-button (click)="incomesList()">Incomes</button></mat-list-item>
+  <mat-list-item role="listitem"><button mat-button (click)="expensesList()">Expenses</button></mat-list-item>
+  <mat-list-item role="listitem"><button mat-button (click)="graphics()">Graphics</button></mat-list-item>
 </mat-list>
